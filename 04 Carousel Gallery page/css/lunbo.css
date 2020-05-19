@@ -1,0 +1,123 @@
+/*产品介绍轮播图*/
+.Exhibition-tite {
+	width: 100%;
+	padding: 25px 0;
+	text-align: center;
+	font-size: 36px;
+	color: #000;
+	font-weight: bold;
+}
+
+.Exhibition-tite em {
+	color: #5b9db7;
+	font-weight: bold;
+}
+.products-btn {
+	width: 1170px;
+	padding-right: 15px;
+	padding-left: 15px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.dg-wrapper a {
+	transition: 0.5s all;
+}
+
+.Related-products {
+	background:#FFFFFF;
+	background-size: cover;
+	min-height: 682px;
+}
+
+.products-top {
+	text-align: center;
+}
+
+.products-top h3 {
+	color: #000000;
+	font-size: 27px;
+	font-weight: 400;
+	margin: 0;
+	letter-spacing: 1px;
+}
+
+.work-bottom {
+	margin-top: 24px;
+}
+
+.products-btn a {
+	color: #fff;
+	font-weight: 400;
+	font-size: 15px;
+	letter-spacing: 1px;
+	background: #5b9db7;
+	padding: 12px 29px;
+	text-decoration: none;
+	border-radius: 5px;
+}
+/* 按钮特效制作 */
+.Button-Special-effects {
+  display: inline-block;
+  transform: translateZ(0);
+  position: relative;
+  background: #e1e1e1;
+  transition-property: color;
+  transition-delay: 0.3s;
+  line-height:20px;
+  border-radius: 5px;
+}
+.Button-Special-effects:before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #31248a;
+  transform: scaleX(0);
+  transition-duration: 0.3s;
+  border-radius: 5px;
+}
+.Button-Special-effects:hover{
+  color: #FFFFFF;
+}
+.Button-Special-effects:hover:before, .Button-Special-effects:focus:before, .Button-Special-effects:active:before {
+  transform: scaleZ(1);
+}
+.products-btn:after {
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+}
+/*--图片滑动特效--*/
+.bg-box {
+	width: 100%;
+	position: relative;
+}
+
+.dg-wrapper {
+	width: 481px;
+	height: 317px;
+	margin: 0 auto;
+	position: relative;
+	transform-style: preserve-3d;
+	perspective: 1000px;
+}
+
+.dg-wrapper a {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+}
+
+.dg-wrapper a img {
+	display: block;
+	width: 100%;
+}
+
+
+/*产品介绍轮播图结束*/

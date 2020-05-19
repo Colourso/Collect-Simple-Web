@@ -1,0 +1,64 @@
+<!--吾爱：www.52pojie.cn-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="css/Gallery.css" /><!--画廊css-->
+		<link rel="stylesheet" href="css/lunbo.css" /><!--本页css-->
+		<script type="text/javascript" src="js/jquery-1.8.3.min.js" ></script><!--jq库-->
+		<script type="text/javascript" src="js/jquery.gallery.js" ></script><!--轮播以及画廊插件-->
+		<title></title>
+	</head>
+	<body>
+				<!--产品展示-->
+	<div class="Related-products">
+		<div class="products-box">
+			<div class="products-top Exhibition-tite">
+				<div class="Exhibition-tite">
+					所有<em>产品</em>
+				</div>
+				<div class="products-btn">
+					<a href="product/product-type-day.html" class="Button-Special-effects">点击进入产品中心</a>
+				</div>
+			</div>
+			<div class="work-bottom">
+				<div id="bg-box" class="bg-box gallery">
+   					<div class="dg-wrapper">
+   						<!--图源来自淘宝-->
+						<a href="img/product-img-1.jpg"><img src="img/product-img-1.jpg"/></a>
+						<a href="img/product-img-2.jpg"><img src="img/product-img-2.jpg"/></a>
+						<a href="img/product-img-3.jpg"><img src="img/product-img-3.jpg"/></a>
+						<a href="img/product-img-4.jpg"><img src="img/product-img-4.jpg"/></a>
+						<a href="img/product-img-5.jpg"><img src="img/product-img-5.jpg"/></a>
+						<a href="img/product-img-6.jpg"><img src="img/product-img-6.jpg" /></a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+		<!--产品展示结束-->
+		<p align="center">吾爱论坛：www.52pojie.cn</p>
+	</body>
+	<script>
+		//产品介绍轮播
+  baguetteBox.run('.gallery', {
+  buttons:Boolean,//是否显示导航按钮。
+  noScrollbars:false,//是否在显示时隐藏滚动条。
+  titleTag:false,//是否显示图片标题
+  async:false,//是否异步加载文件。
+
+  afterShow:function(){//显示遮罩层之后的回调函数。   
+       $(".pressing").fadeIn();
+    },
+  afterHide:function(){//隐藏遮罩层之后的回调函数。 
+      $(".pressing").fadeOut(); 
+    }
+});
+	$(function() {
+		$('#bg-box').gallery({
+			autoplay:true //是否自动播放
+					});
+				});
+//产品介绍轮播结束
+	</script>
+</html>

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html class="no-js">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html" ; charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登陆页面</title>
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+    <style type="text/css">
+        @keyframes caretBlink {
+            from {
+                opacity: 1.0;
+            }
+
+            to {
+                opacity: 0.0;
+            }
+        }
+
+        @keyframes rotateSpinner {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        #text-tool-caret {
+            animation-name: caretBlink;
+            animation-iteration-count: infinite;
+            animation-timing-function: cubic-bezier(1.0, 0, 0, 1.0);
+            animation-duration: 1s;
+        }
+
+        #en-markup-loading-spinner {
+            position: absolute;
+            top: calc(50% - 16px);
+            left: calc(50% - 16px);
+            width: 32px;
+            height: 32px;
+        }
+
+        #en-markup-loading-spinner img {
+            position: relative;
+            top: 0px;
+            left: 0px;
+            animation-name: rotateSpinner;
+            animation-duration: 0.6s;
+            animation-iteration-count: infinite;
+            animation-timing-function: linear;
+        }
+    </style>
+    <style type="text/css">
+        /* Copyright 2014-present Evernote Corporation. All rights reserved. */
+        .skitchToastBoxContainer {
+            position: absolute;
+            width: 100%;
+            text-align: center;
+            top: 30px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            pointer-events: none;
+        }
+
+        .skitchToastBox {
+            width: 200px;
+            height: 16px;
+            padding: 12px;
+            background-color: rgba(47, 55, 61, 0.95);
+            border-radius: 4px;
+            color: white;
+            cursor: default;
+            font-size: 10pt;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.32);
+            font-family: 'Soleil', Helvetica, Arial, sans-serif;
+            border: 2px rgba(255, 255, 255, 0.38) solid;
+        }
+
+        .lang-zh-cn .skitchToastBox {
+            font-family: '微软雅黑', 'Microsoft YaHei', SimSun,
+                '&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic', 'Soleil',
+                Helvetica, Arial, sans-serif;
+        }
+
+        .lang-ja-jp .skitchToastBox {
+            font-family: '&#x30E1;&#x30A4;&#x30EA;&#x30AA;', Meiryo, 'MS PGothic',
+                '微软雅黑', 'Microsoft YaHei', SimSun, 'Soleil', Helvetica, Arial,
+                sans-serif;
+        }
+
+        .skitchToast {
+            padding-left: 20px;
+            padding-right: 20px;
+            display: inline-block;
+            height: 10px;
+            color: #f1f5f8;
+            text-align: center;
+        }
+
+        .skitchVisible {
+            /* Don't remove this class it's a hack used by the Evernote Clipper */
+        }
+    </style>
+    <style type="text/css">
+        /* Copyright 2014-present Evernote Corporation. All rights reserved. */
+
+        @font-face {
+            font-family: 'Soleil';
+            font-weight: normal;
+            font-style: normal;
+        }
+    </style>
+    <style type="text/css">
+        /* Copyright 2019-present Evernote Corporation. All rights reserved. */
+
+        #en-markup-disabled {
+            position: fixed;
+            z-index: 9999;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            cursor: default;
+            -webkit-user-select: none;
+        }
+
+        #en-markup-alert-container {
+            position: absolute;
+            z-index: 9999;
+            width: 450px;
+            left: calc(50% - 225px);
+            top: calc(50% - 85px);
+            background-color: white;
+            box-shadow: 0 2px 7px 1px rgba(0, 0, 0, 0.35);
+            -webkit-user-select: none;
+        }
+
+        #en-markup-alert-container .cell-1 {
+            position: relative;
+            height: 110px;
+            width: 105px;
+            float: left;
+            text-align: center;
+            background-position: 65% 50%;
+            background-repeat: no-repeat;
+        }
+
+        #en-markup-alert-container .cell-2 {
+            position: relative;
+            float: left;
+            width: 345px;
+            margin-top: 29px;
+            margin-bottom: 20px;
+        }
+
+        #en-markup-alert-container .cell-2 .cell-2-title {
+            margin-bottom: 5px;
+            padding-right: 30px;
+            font-size: 12pt;
+            font-family: Tahoma, Arial;
+        }
+
+        #en-markup-alert-container .cell-2 .cell-2-message {
+            padding-right: 30px;
+            font-size: 9.5pt;
+            font-family: Tahoma, Arial;
+        }
+
+        #en-markup-alert-container .cell-3 {
+            position: relative;
+            width: 450px;
+            height: 60px;
+            float: left;
+            background-color: rgb(240, 240, 240);
+        }
+
+        #en-markup-alert-container .cell-3 button {
+            position: absolute;
+            top: 12px;
+            right: 15px;
+            width: 110px;
+            height: 36px;
+        }
+
+        #en-markup-alert-container .cell-3 button.alt-button {
+            position: absolute;
+            top: 12px;
+            right: 140px;
+            width: 110px;
+            height: 36px;
+        }
+    </style>
+</head>
+
+<body class="body-100">
+    <div class="typecho-login-wrap">
+        <div class="typecho-login">
+            <h1><a href="http://typecho.org/" class="i-logo">Typecho</a></h1>
+            <form action="" method="post" name="login" role="form">
+                <p>
+                    <label for="name" class="sr-only">用户名</label>
+                    <input type="text" id="name" name="name" value="" placeholder="用户名" class="text-l w-100"
+                        autofocus="">
+                </p>
+                <p>
+                    <label for="password" class="sr-only">密码</label>
+                    <input type="password" id="password" name="password" class="text-l w-100" placeholder="密码">
+                </p>
+                <p class="submit">
+                    <button type="submit" class="btn btn-l w-100 primary">登录</button>
+                    <input type="hidden" name="referer" value="">
+                </p>
+                <p>
+                    <label for="remember"><input type="checkbox" name="remember" class="checkbox" value="1"
+                            id="remember">下次登录</label>
+                </p>
+            </form>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/typecho.js"></script>
+    <script>
+        (function () {
+            $(document).ready(function () {
+                // 处理消息机制
+                (function () {
+                    var prefix = '26a1e3d1ba0febd0cf666ccc4f8ec95c',
+                        cookies = {
+                            notice: $.cookie(prefix + '__typecho_notice'),
+                            noticeType: $.cookie(prefix + '__typecho_notice_type'),
+                            highlight: $.cookie(prefix + '__typecho_notice_highlight')
+                        },
+                        path = '/';
+
+                    if (!!cookies.notice && 'success|notice|error'.indexOf(cookies.noticeType) >= 0) {
+                        var head = $('.typecho-head-nav'),
+                            p = $('<div class="message popup ' + cookies.noticeType + '">'
+                                + '<ul><li>' + $.parseJSON(cookies.notice).join('</li><li>')
+                                + '</li></ul></div>'), offset = 0;
+
+                        if (head.length > 0) {
+                            p.insertAfter(head);
+                            offset = head.outerHeight();
+                        } else {
+                            p.prependTo(document.body);
+                        }
+
+                        function checkScroll() {
+                            if ($(window).scrollTop() >= offset) {
+                                p.css({
+                                    'position': 'fixed',
+                                    'top': 0
+                                });
+                            } else {
+                                p.css({
+                                    'position': 'absolute',
+                                    'top': offset
+                                });
+                            }
+                        }
+
+                        $(window).scroll(function () {
+                            checkScroll();
+                        });
+
+                        checkScroll();
+
+                        p.slideDown(function () {
+                            var t = $(this), color = '#C6D880';
+
+                            if (t.hasClass('error')) {
+                                color = '#FBC2C4';
+                            } else if (t.hasClass('notice')) {
+                                color = '#FFD324';
+                            }
+
+                            t.effect('highlight', { color: color })
+                                .delay(5000).fadeOut(function () {
+                                    $(this).remove();
+                                });
+                        });
+
+
+                        $.cookie(prefix + '__typecho_notice', null, { path: path });
+                        $.cookie(prefix + '__typecho_notice_type', null, { path: path });
+                    }
+
+                    if (cookies.highlight) {
+                        $('#' + cookies.highlight).effect('highlight', 1000);
+                        $.cookie(prefix + '__typecho_notice_highlight', null, { path: path });
+                    }
+                })();
+
+                $('.main form').submit(function () {
+                    $('button[type=submit]', this).attr('disabled', 'disabled');
+                });
+            });
+        })();
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#name').focus();
+        });
+    </script>
+
+
+</body>
+
+</html>
